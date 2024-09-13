@@ -1,5 +1,5 @@
 #include <iostream>
-#include "function.hpp"
+#include "function.cpp"
 int main()
 {
         std::cout << "Main function" << std::endl;
