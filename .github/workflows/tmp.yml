@@ -13,6 +13,13 @@ jobs:
         run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp lib/*.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - name: Build for tests
         run: |
+          cmake -H. -B_build -DBUILD_TESTS=ON
+          cmake --build _build
+      - name: Run tests
+        run: |
+          cmake --build _build --target test -- ARGS=--verbose
+      - name: Build for main
+        run: |
           cmake -H. -B_build -DBUILD_MAIN=ON
           cmake --build _build
       - name: Test if main.cpp actually present
