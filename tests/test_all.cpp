@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include <stdexcept>
 
 #include "function.cpp"
 TEST (Function, Normal) {
