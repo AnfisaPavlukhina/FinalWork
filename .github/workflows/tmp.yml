@@ -17,3 +17,8 @@ jobs:
           cmake --build _build
       - name: Test if main.cpp actually present
         run: ./_build/main
+      - name: Upload main build
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled
+          path: _build/main
